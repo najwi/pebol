@@ -124,11 +124,13 @@ a { color: inherit; }
   align-self: center;
   padding: clamp(2.5rem, 6vw, 5rem) var(--gutter);
   padding-left: max(var(--gutter), calc((100vw - var(--max)) / 2 + var(--gutter)));
+  container-type: inline-size;
 }
 .hero__title {
   font-weight: 900;
   font-stretch: 112%;
-  font-size: clamp(2.6rem, 5.4vw, 5rem);
+  /* sized to the text column so the longest word, "Sprzątanie", always fits */
+  font-size: clamp(2rem, 15.5cqi, 5rem);
   line-height: .98;
   letter-spacing: -.025em;
   max-width: 11ch;
