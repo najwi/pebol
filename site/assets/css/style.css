@@ -7,6 +7,8 @@
   --yellow: #F5C400;
   --ink: #2A1011;
   --muted: #6B5352;
+  --paper: #FBEFEA;
+  --paper-muted: #D9BFBB;
   --suds: #EEF1F3;
   --white: #FFFFFF;
 
@@ -66,10 +68,16 @@ a { color: inherit; }
   padding: .35rem .7rem .3rem;
   border-radius: .5rem;
 }
-.nav { display: flex; gap: 1.75rem; margin-left: auto; }
+/* The header sits on the glass too, so the links get their own solid ground */
+.nav {
+  display: flex; gap: 1.5rem; margin-left: auto;
+  padding: .6rem 1.35rem;
+  background: var(--ink);
+  border-radius: 999px;
+}
 .nav a {
-  color: var(--white); text-decoration: none; font-weight: 700;
-  text-underline-offset: .4em; text-decoration-thickness: 3px;
+  color: var(--paper); text-decoration: none; font-weight: 700;
+  text-underline-offset: .35em; text-decoration-thickness: 3px;
 }
 .nav a:hover { text-decoration-line: underline; text-decoration-color: var(--yellow); }
 .bar__call {
@@ -100,62 +108,102 @@ a { color: inherit; }
 .btn--red { background: var(--red-deep); color: var(--white); }
 .btn--red:hover { background: var(--ink); }
 
-/* Hero: a red wall behind steamed glass */
+/* Hero: a red wall with the headline painted on it, behind steamed glass.
+   Everything small sits on the glass, on a solid sign, so fog never covers it. */
 .hero {
   position: relative;
-  min-height: max(36rem, 100svh);
-  display: flex; align-items: flex-end;
-  padding: 7rem max(var(--gutter), (100% - var(--max)) / 2) clamp(5rem, 12vh, 8rem);
+  min-height: max(38rem, 100svh);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(19rem, 25rem);
+  align-items: end;
+  gap: 2rem clamp(2rem, 4vw, 4rem);
+  padding: 7.5rem max(var(--gutter), (100% - var(--max)) / 2) clamp(2.5rem, 7vh, 5rem);
   background: var(--red);
   color: var(--white);
   overflow: hidden;
   isolation: isolate;
+  /* Sideways swipes wipe the glass instead of moving the page */
+  touch-action: pan-y pinch-zoom;
 }
-.hero__copy { position: relative; z-index: 1; max-width: 62rem; }
+.hero__wall { position: relative; z-index: 1; container-type: inline-size; }
 .hero__title {
-  font-size: clamp(3.1rem, 10.5vw, 9.5rem);
+  font-size: clamp(2.8rem, 22cqi, 11rem);
   font-weight: 900;
-  font-stretch: 72%;
+  font-stretch: 75%;
   line-height: .9;
   letter-spacing: -.015em;
   color: var(--yellow);
   max-width: 10ch;
-  margin-bottom: 1.6rem;
   text-wrap: balance;
 }
-.hero__lead { max-width: 34rem; font-size: 1.2rem; }
-.hero__actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.8rem; }
+/* With WebGL the headline is painted behind the glass; this copy stays for
+   screen readers, search and selection. */
+.is-fogged .hero__title { color: transparent; }
 
-.hero__glass {
-  position: absolute; inset: 0; z-index: 2;
+.hero__glass, .hero__bubbles {
+  position: absolute; inset: 0;
   width: 100%; height: 100%;
   pointer-events: none;
 }
-.hero__glass ~ * { pointer-events: none; }
+.hero__glass { z-index: 2; }
+.hero__bubbles { z-index: 4; }
+
+.hero__sign {
+  position: relative; z-index: 3;
+  padding: clamp(1.25rem, 2.2vw, 1.75rem);
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 1.4rem;
+  box-shadow: 0 1.5rem 3rem -1.5rem rgba(40, 0, 0, .6);
+}
+.hero__lead { font-size: 1.1rem; line-height: 1.5; margin-bottom: 1.3rem; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: .6rem; }
+.hero__actions .btn { flex: 1 1 auto; text-align: center; }
+.hero__sign :focus-visible { outline-color: var(--yellow); }
+
+.hero__hint {
+  display: none;
+  margin: 1.2rem 0 0; padding-top: 1rem;
+  border-top: 1px solid rgba(251, 239, 234, .16);
+  font-size: .92rem; line-height: 1.4;
+  color: var(--paper-muted);
+  opacity: 0;
+  transition: opacity .6s .2s;
+}
+.is-fogged .hero__hint { display: block; }
+.is-wipeable .hero__hint { opacity: 1; }
+.hint--touch { display: none; }
+@media (hover: none) {
+  .hint--mouse { display: none; }
+  .hint--touch { display: inline; }
+}
 
 .squeegee {
-  position: absolute; left: 0; top: 0; z-index: 4;
+  position: absolute; left: 0; top: 0; z-index: 5;
   width: 5.5rem; margin: -1.4rem 0 0 -2.75rem;
   opacity: 0; transition: opacity .25s;
+  pointer-events: none;
   filter: drop-shadow(0 6px 10px rgba(80, 0, 0, .35));
 }
 .squeegee.is-on { opacity: 1; }
 
-.hero__hint {
-  position: absolute; right: var(--gutter); bottom: 1.4rem; z-index: 4;
-  max-width: 21rem; margin: 0;
-  font-size: .95rem; line-height: 1.4;
-  color: var(--ink);
-  opacity: 0; transform: translateY(.5rem);
-  transition: opacity .6s .3s, transform .6s .3s;
-}
-.is-wipeable .hero__hint { opacity: 1; transform: none; }
 .is-wipeable {
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewBox='0 0 120 150'%3E%3Crect x='52' y='44' width='16' height='104' rx='8' fill='%23F5C400' stroke='%232A1011' stroke-width='4'/%3E%3Crect x='6' y='30' width='108' height='18' rx='4' fill='%23fff' stroke='%232A1011' stroke-width='4'/%3E%3Crect x='2' y='22' width='116' height='10' rx='5' fill='%232A1011'/%3E%3C/svg%3E") 20 10, crosshair;
 }
+.hero.is-over-bubble, .contact.is-over-bubble { cursor: pointer; }
+
+@media (max-width: 60rem) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    align-content: end;
+    padding-top: 6.5rem;
+  }
+  .hero__sign { max-width: 34rem; }
+}
 @media (max-width: 40rem) {
-  .hero__hint { left: var(--gutter); right: auto; bottom: 1rem; font-size: .88rem; }
-  .hero__lead { font-size: 1.05rem; }
+  .hero { gap: 1.5rem; padding-bottom: var(--gutter); }
+  .hero__lead { font-size: 1.02rem; }
+  .hero__actions .btn { flex-basis: 100%; }
 }
 
 /* Sections share one column system */

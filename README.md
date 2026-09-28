@@ -1,10 +1,10 @@
 # PeBol – strona firmowa
 
-Jednostronicowa strona firmy sprzątającej PeBol z Częstochowy, wersja z efektami WebGL (three.js): zaparowana szyba w nagłówku, którą przeciera się kursorem lub palcem, i bańki mydlane, które można przebić kliknięciem. Czcionki (Archivo, Atkinson Hyperlegible) i biblioteka three.js są hostowane lokalnie.
+Jednostronicowa strona firmy sprzątającej PeBol z Częstochowy, wersja z efektami WebGL (three.js): zaparowana szyba w nagłówku, przez którą prześwituje rozmyty napis, a po szybie spływają krople. Szybę przeciera się kursorem albo palcem (na telefonie ruchem na boki). Bańki mydlane pękają od kliknięcia lub dotknięcia, a ich krople zostają na szybie. Na telefonach z Androidem bańki reagują na przechylenie, a pęknięcie daje krótką wibrację. Czcionki (Archivo, Atkinson Hyperlegible) i biblioteka three.js są hostowane lokalnie.
 
 ```
 site/            strona (index.html, assets/), gotowa do serwowania
-src/             kod WebGL (szyba, bańki), budowany do site/assets/js/app.js
+src/             kod WebGL (glass.js: szyba, bubbles.js: bańki, main.js: interakcje), budowany do site/assets/js/app.js
 apache/          konfiguracja Apache (kompresja, cache, nagłówki)
 Dockerfile       obraz httpd:2.4-alpine z gotową stroną
 .github/         wdrożenie na GitHub Pages
