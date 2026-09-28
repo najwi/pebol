@@ -1,10 +1,13 @@
 name: Deploy to GitHub Pages
 
+# One Pages site, two versions:
+#   /     the page from main
+#   /3d/  the three.js page from claude/pebol-threejs-bqhxc0
 on:
   push:
     branches:
       - main
-      - claude/pebol-landing-page-35qx8u
+      - claude/pebol-threejs-bqhxc0
     paths:
       - "site/**"
       - ".github/workflows/pages.yml"
@@ -27,9 +30,21 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: main
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/pebol-threejs-bqhxc0
+          path: threejs
+      - name: Assemble site
+        run: |
+          mkdir -p public/3d
+          cp -R main/site/. public/
+          cp -R threejs/site/. public/3d/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: public
       - id: deployment
         uses: actions/deploy-pages@v4

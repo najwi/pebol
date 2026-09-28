@@ -1,12 +1,22 @@
 # PeBol – strona firmowa
 
-Jednostronicowa strona firmy sprzątającej PeBol z Częstochowy. Zwykły HTML i CSS bez kroku budowania. Czcionki (Archivo, Atkinson Hyperlegible) są hostowane lokalnie.
+Jednostronicowa strona firmy sprzątającej PeBol z Częstochowy, wersja z efektami WebGL (three.js): zaparowana szyba w nagłówku, którą przeciera się kursorem lub palcem, i bańki mydlane, które można przebić kliknięciem. Czcionki (Archivo, Atkinson Hyperlegible) i biblioteka three.js są hostowane lokalnie.
 
 ```
-site/            strona (index.html, assets/)
+site/            strona (index.html, assets/), gotowa do serwowania
+src/             kod WebGL (szyba, bańki), budowany do site/assets/js/app.js
 apache/          konfiguracja Apache (kompresja, cache, nagłówki)
 Dockerfile       obraz httpd:2.4-alpine z gotową stroną
 .github/         wdrożenie na GitHub Pages
+```
+
+## Zmiany w efektach
+
+Kod w `src/` jest pakowany przez esbuild. Zbudowany plik `site/assets/js/app.js` jest w repozytorium, więc Docker i Pages nie potrzebują Node.
+
+```sh
+npm install
+npm run build    # albo npm run watch
 ```
 
 ## Uruchomienie w Dockerze
@@ -20,9 +30,9 @@ Strona będzie pod adresem http://localhost:8080.
 
 ## GitHub Pages
 
-Workflow `.github/workflows/pages.yml` publikuje katalog `site/` przy każdym pushu zmian w stronie. Jednorazowo trzeba włączyć Pages w ustawieniach repozytorium: **Settings → Pages → Source: GitHub Actions**. Na prywatnym repozytorium Pages wymaga płatnego planu GitHub (Pro lub wyżej). Na darmowym planie repozytorium musi być publiczne.
+Workflow `.github/workflows/pages.yml` składa jedną witrynę z dwóch gałęzi: `site/` z `main` trafia pod adres główny, a `site/` z gałęzi `claude/pebol-threejs-bqhxc0` pod `/3d/`. Uruchamia się przy pushu zmian w stronie na którejkolwiek z nich. Jednorazowo trzeba włączyć Pages w ustawieniach repozytorium: **Settings → Pages → Source: GitHub Actions**. Na prywatnym repozytorium Pages wymaga płatnego planu GitHub (Pro lub wyżej). Na darmowym planie repozytorium musi być publiczne.
 
-Strona będzie pod adresem https://najwi.github.io/pebol/.
+Adresy: https://najwi.github.io/pebol/ (main) i https://najwi.github.io/pebol/3d/ (wersja three.js).
 
 ## Podgląd bez Dockera
 
