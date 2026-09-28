@@ -167,6 +167,7 @@ a { color: inherit; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: .6rem; }
 .hero__actions .btn { flex: 1 1 auto; text-align: center; }
 .hero__sign :focus-visible { outline-color: var(--yellow); }
+.btn__short { display: none; }
 
 .hero__hint {
   display: none;
@@ -209,10 +210,18 @@ a { color: inherit; }
   }
   .hero__sign { max-width: 34rem; }
 }
+/* Phones: the headline leads, the sign stays a compact strip under it.
+   The number is in the header pill, so the buttons can say less. */
 @media (max-width: 40rem) {
-  .hero { --bottom: var(--gutter); --below-title: 24.5rem; gap: 1.5rem; }
-  .hero__lead { font-size: 1.02rem; }
-  .hero__actions .btn { flex-basis: 100%; }
+  .hero { --bottom: var(--gutter); --below-title: 16.5rem; gap: 1.25rem; }
+  .hero__title { font-size: clamp(2.6rem, min(23cqi, var(--room) / 3.75), 11rem); }
+  .hero__sign { padding: 1rem 1.1rem; border-radius: 1.1rem; }
+  .hero__lead { font-size: .95rem; line-height: 1.45; margin-bottom: .9rem; }
+  .hero__actions { flex-wrap: nowrap; gap: .5rem; }
+  .hero__actions .btn { flex: 1 1 0; padding: .7rem .8rem; }
+  .btn__full { display: none; }
+  .btn__short { display: inline; }
+  .hero__hint { margin-top: .8rem; padding-top: .7rem; font-size: .82rem; }
 }
 
 /* Sections share one column system */

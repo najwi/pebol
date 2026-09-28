@@ -267,10 +267,20 @@ function setupHero() {
     requestAnimationFrame(tick);
   }
 
-  // Wait for the headline font so the squeegee follows the final layout.
-  const cs = getComputedStyle(title);
-  const fontIn = document.fonts?.load(`${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`) ?? Promise.resolve();
-  Promise.race([fontIn, new Promise((r) => setTimeout(r, 3000))]).then(intro, intro);
+  // Wait for the fonts so the squeegee follows the final layout: the sign's
+  // text wrapping moves the headline too. Polish letters live in a separate
+  // subset, so ask for them explicitly.
+  const polish = 'Sprzątanie ĄĆĘŁŃÓŚŹŻąćęłńóśźż';
+  const titleFont = getComputedStyle(title);
+  const bodyFont = getComputedStyle(hero.querySelector('.hero__lead') ?? title).fontFamily;
+  const fontsIn = document.fonts
+    ? Promise.all([
+        document.fonts.load(`${titleFont.fontWeight} ${titleFont.fontSize} ${titleFont.fontFamily}`, polish),
+        document.fonts.load(`400 16px ${bodyFont}`, polish),
+        document.fonts.load(`700 16px ${bodyFont}`, polish),
+      ]).then(() => document.fonts.ready)
+    : Promise.resolve();
+  Promise.race([fontsIn, new Promise((r) => setTimeout(r, 3000))]).then(intro, intro);
 }
 
 function setupContact() {

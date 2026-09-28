@@ -50,8 +50,8 @@ const maskFragment = /* glsl */ `
 
   void main() {
     vec2 prev = texture2D(uPrev, vUv).rg;
-    // Condensation returns towards 45% of the fog where the glass was wiped.
-    float clean = max(prev.g * 0.55, prev.r - uDt * 0.035);
+    // Condensation returns towards a third of the fog where the glass was wiped.
+    float clean = max(prev.g * 0.68, prev.r - uDt * 0.035);
 
     vec2 s = vec2(uAspect, 1.0);
     float stamp = 0.0;
