@@ -54,17 +54,23 @@
 
   <main id="main">
     <section class="hero" id="top">
-      <div class="hero__copy">
+      <div class="hero__wall">
         <h1 class="hero__title">Sprzątanie z&nbsp;nami jest dziecinnie proste.</h1>
+      </div>
+      <canvas class="hero__glass" aria-hidden="true"></canvas>
+      <svg class="squeegee" aria-hidden="true" viewBox="0 0 120 150"><rect x="52" y="44" width="16" height="104" rx="8" fill="#F5C400"/><rect x="6" y="30" width="108" height="18" rx="4" fill="#fff"/><rect x="2" y="22" width="116" height="10" rx="5" fill="#2A1011"/></svg>
+      <div class="hero__sign">
         <p class="hero__lead">Od 1990 roku sprzątamy zakłady pracy, biura i&nbsp;mieszkania w&nbsp;Częstochowie. Sprzedajemy też chemię i&nbsp;sprzęt, którymi pracujemy na co dzień.</p>
         <div class="hero__actions">
           <a class="btn btn--yellow" href="tel:+48343721677">Zadzwoń: 34 372 16 77</a>
           <a class="btn btn--line" href="mailto:biuro@pebol.pl">Napisz na biuro@pebol.pl</a>
         </div>
+        <p class="hero__hint" aria-hidden="true">
+          <span class="hint--mouse">Szyba zaparowała. Przetrzyj ją kursorem, a&nbsp;bańki przebij kliknięciem.</span>
+          <span class="hint--touch">Szyba zaparowała. Przetrzyj ją palcem na boki, a&nbsp;bańki przebij dotknięciem.</span>
+        </p>
       </div>
-      <canvas class="hero__glass" aria-hidden="true"></canvas>
-      <svg class="squeegee" aria-hidden="true" viewBox="0 0 120 150"><rect x="52" y="44" width="16" height="104" rx="8" fill="#F5C400"/><rect x="6" y="30" width="108" height="18" rx="4" fill="#fff"/><rect x="2" y="22" width="116" height="10" rx="5" fill="#1d1d1d"/></svg>
-      <p class="hero__hint" aria-hidden="true">Szyba zaparowała. Przetrzyj ją kursorem albo palcem, a&nbsp;bańki możesz przebić kliknięciem.</p>
+      <canvas class="hero__bubbles" aria-hidden="true"></canvas>
     </section>
 
     <section class="about" aria-label="O firmie">
