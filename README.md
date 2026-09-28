@@ -4,7 +4,7 @@ Jednostronicowa strona firmy sprzątającej PeBol z Częstochowy, wersja z efekt
 
 ```
 site/            strona (index.html, assets/), gotowa do serwowania
-src/             kod WebGL (glass.js: szyba, bubbles.js: bańki, main.js: interakcje), budowany do site/assets/js/app.js
+src/             kod JS (glass.js: szyba, bubbles.js: bańki, proof.js: zdjęcia przed/po, main.js: interakcje), budowany do site/assets/js/app.js
 apache/          konfiguracja Apache (kompresja, cache, nagłówki)
 Dockerfile       obraz httpd:2.4-alpine z gotową stroną
 .github/         wdrożenie na GitHub Pages

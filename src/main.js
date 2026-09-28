@@ -1,6 +1,7 @@
 import { PerspectiveCamera, Scene, Vector3, WebGLRenderer } from 'three';
 import { createBubbles } from './bubbles.js';
 import { createGlass } from './glass.js';
+import { setupProof } from './proof.js';
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const layers = [];
@@ -301,6 +302,8 @@ function setupTilt() {
   });
 }
 
+// Before the WebGL parts, so a GPU problem can never hold it up
+setupProof(document.querySelector('.proof'), { still: reduceMotion });
 setupHero();
 setupContact();
 

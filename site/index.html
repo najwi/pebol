@@ -13,8 +13,8 @@
   <link rel="icon" href="assets/img/favicon.png">
   <link rel="preload" href="assets/fonts/archivo-normal-500-900-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/fonts.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script type="module" src="assets/js/app.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=3">
+  <script type="module" src="assets/js/app.js?v=3"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -25,6 +25,8 @@
     "telephone": "+48343721677",
     "vatID": "5730207704",
     "image": "assets/img/logo.png",
+    "openingHours": "Mo-Fr 09:00-16:00",
+    "sameAs": ["https://www.facebook.com/pebolspj/"],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Dobrzyńska 49",
@@ -74,45 +76,62 @@
     </section>
 
     <section class="about" aria-label="O firmie">
-      <p class="about__statement">Od ponad trzydziestu lat robimy jedną rzecz: sprzątamy. Mieszkania po remoncie, biura po godzinach, hale produkcyjne każdego dnia.</p>
-      <p class="about__note">Z&nbsp;wieloma zakładami w&nbsp;Częstochowie współpracujemy na stałe. Techniki, chemię i&nbsp;maszyny dobieramy do powierzchni, a&nbsp;nie odwrotnie.</p>
+      <p class="about__statement">Od ponad trzydziestu lat robimy jedną rzecz: sprzątamy. Domy po remoncie, biura, szkoły i&nbsp;zakłady produkcyjne, jednorazowo albo na stałe.</p>
+      <p class="about__note">Z&nbsp;wieloma zakładami w&nbsp;Częstochowie współpracujemy na stałe, a&nbsp;każdy brudzi się inaczej: olejem, tym, co każdego dnia wnosi się na butach, śladami pisaków albo pyłem z&nbsp;masy formierskiej. Chemię i&nbsp;maszyny dobieramy do tego, co trzeba usunąć.</p>
     </section>
 
     <section class="services" id="uslugi" aria-labelledby="uslugi-title">
       <h2 id="uslugi-title" class="section-title">Co sprzątamy</h2>
       <div class="group">
-          <h3 class="group__name">Podłogi</h3>
-          <dl class="group__list">
-            <div><dt>Krystalizacja</dt><dd>Utwardza i&nbsp;nabłyszcza posadzki z&nbsp;marmuru, lastryko i&nbsp;konglomeratów.</dd></div>
-            <div><dt>Warstwy polimerowe</dt><dd>Nakładamy i&nbsp;odnawiamy powłoki, które chronią podłogę przed ścieraniem i&nbsp;ułatwiają codzienne mycie.</dd></div>
-            <div><dt>Doczyszczanie mocno zabrudzonych podłóg</dt><dd>Maszynowo usuwamy stary, wżarty brud i&nbsp;resztki zużytych powłok.</dd></div>
-            <div><dt>Czyszczenie parą</dt><dd>Tam, gdzie liczy się higiena i&nbsp;gdzie chemia nie jest mile widziana.</dd></div>
-          </dl>
-        </div>
+        <h3 class="group__name">Podłogi</h3>
+        <dl class="group__list">
+          <div><dt>Krystalizacja</dt><dd>Utwardza i&nbsp;nabłyszcza posadzki kamienne i&nbsp;lastrykowe.</dd></div>
+          <div><dt>Warstwy polimerowe</dt><dd>Nakładamy i&nbsp;odnawiamy powłoki, które chronią podłogę przed ścieraniem i&nbsp;ułatwiają codzienne mycie.</dd></div>
+          <div><dt>Doczyszczanie mocno zabrudzonych podłóg</dt><dd>Jednorazowo i&nbsp;bez długiej umowy, gdy codzienne mycie już nie wystarcza. Przyjeżdżamy z&nbsp;szorowarką i&nbsp;mocną chemią.</dd></div>
+          <div><dt>Czyszczenie parą</dt><dd>Sucha para o&nbsp;temperaturze ok.&nbsp;175°C i&nbsp;ciśnieniu 10&nbsp;barów wchodzi w&nbsp;fugi i&nbsp;odpływy, dezynfekuje i&nbsp;nie wzbija kurzu.</dd></div>
+        </dl>
+      </div>
 
-        <div class="group">
-          <h3 class="group__name">Wnętrza</h3>
-          <dl class="group__list">
-            <div><dt>Sprzątanie po remontach</dt><dd>Pył, zaprawa, farba i&nbsp;silikon znikają, a&nbsp;do mieszkania albo biura można się od razu wprowadzić.</dd></div>
-            <div><dt>Sprzątanie biur</dt><dd>Regularnie, po godzinach pracy, według ustalonego planu.</dd></div>
-            <div><dt>Sprzątanie codzienne</dt><dd>Stała obsługa zakładów pracy, hal i&nbsp;obiektów usługowych.</dd></div>
-          </dl>
-        </div>
+      <div class="group">
+        <h3 class="group__name">Wnętrza</h3>
+        <dl class="group__list">
+          <div><dt>Sprzątanie po remontach</dt><dd>Doczyszczamy podłogi, zdejmujemy z&nbsp;okien naklejki i&nbsp;taśmy, myjemy schody, balustrady i&nbsp;drzwi, a&nbsp;nawet wnętrza szaf i&nbsp;kuchennej zabudowy.</dd></div>
+          <div><dt>Sprzątanie biur</dt><dd>Na stałe albo doraźnie. Odkurzamy i&nbsp;pierzemy wykładziny, myjemy kuchnie, czyścimy sprzęt biurowy, dezynfekujemy toalety.</dd></div>
+          <div><dt>Sprzątanie codzienne</dt><dd>Na długoterminowej umowie, w&nbsp;godzinach, które pasują klientowi. Dbamy o&nbsp;szkołę, biurowce, zakłady produkcyjne, salon kosmetyczny i&nbsp;warsztat samochodowy.</dd></div>
+        </dl>
+      </div>
 
-        <div class="group">
-          <h3 class="group__name">Okna i&nbsp;dywany</h3>
-          <dl class="group__list">
-            <div><dt>Mycie okien</dt><dd>Okna, witryny i&nbsp;przeszklenia razem z&nbsp;ramami i&nbsp;parapetami.</dd></div>
-            <div><dt>Pranie dywanów</dt><dd>Dywany i&nbsp;wykładziny dywanowe w&nbsp;domach, biurach i&nbsp;hotelach.</dd></div>
-          </dl>
-        </div>
+      <div class="group">
+        <h3 class="group__name">Okna i&nbsp;dywany</h3>
+        <dl class="group__list">
+          <div><dt>Mycie okien</dt><dd>Po staremu: ściągaczką, barankiem i&nbsp;ścierką do polerowania, więc szyby zostają bez smug. Myjemy z&nbsp;drabin, rusztowań i&nbsp;z&nbsp;podnośnika.</dd></div>
+          <div><dt>Pranie dywanów</dt><dd>Metodą pianową albo ekstrakcyjną, zwykle u&nbsp;nas w&nbsp;firmie. Dywan możesz przywieźć sam albo zamówić odbiór i&nbsp;dowóz. Usuwamy plamy i&nbsp;zapachy, nawet tytoniu, moczu czy stęchlizny.</dd></div>
+        </dl>
+      </div>
 
-        <div class="group">
-          <h3 class="group__name">Na zewnątrz</h3>
-          <dl class="group__list">
-            <div><dt>Czyszczenie bruku</dt><dd>Kostka brukowa na podjazdach, chodnikach i&nbsp;tarasach odzyskuje swój kolor.</dd></div>
-          </dl>
-        </div>
+      <div class="group">
+        <h3 class="group__name">Na zewnątrz</h3>
+        <dl class="group__list">
+          <div><dt>Czyszczenie bruku</dt><dd>Myjką wysokociśnieniową zmywamy z&nbsp;kostki mech, plamy oleju, ślady opon, wosk ze zniczy i&nbsp;przyklejoną gumę do żucia.</dd></div>
+        </dl>
+        <figure class="proof">
+          <div class="proof__pair">
+            <div class="proof__shot">
+              <img src="assets/img/work/bruk-przed.jpg" srcset="assets/img/work/bruk-przed-640.jpg 640w, assets/img/work/bruk-przed.jpg 1000w" sizes="(max-width: 52rem) 100vw, 30rem" width="1000" height="563" loading="lazy" decoding="async" alt="Kostka brukowa w&nbsp;ogrodzie przed myciem: szara, z&nbsp;zielonym mchem w&nbsp;fugach.">
+              <p class="proof__label" aria-hidden="true">Przed</p>
+            </div>
+            <div class="proof__shot">
+              <div class="proof__after">
+                <img class="proof__under" src="assets/img/work/bruk-przed.jpg" srcset="assets/img/work/bruk-przed-640.jpg 640w, assets/img/work/bruk-przed.jpg 1000w" sizes="(max-width: 52rem) 100vw, 30rem" width="1000" height="563" loading="lazy" decoding="async" alt="">
+                <img class="proof__clean" src="assets/img/work/bruk-po.jpg" srcset="assets/img/work/bruk-po-640.jpg 640w, assets/img/work/bruk-po.jpg 1000w" sizes="(max-width: 52rem) 100vw, 30rem" width="1000" height="563" loading="lazy" decoding="async" alt="Ta sama kostka po myciu: znów czerwona, fugi czyste.">
+                <span class="proof__track" aria-hidden="true"><span class="proof__edge"></span></span>
+              </div>
+              <p class="proof__label proof__label--po" aria-hidden="true">Po</p>
+            </div>
+          </div>
+          <figcaption class="proof__caption">Ta sama kostka w&nbsp;ogrodzie przed myciem i&nbsp;po nim. Myjka wysokociśnieniowa, woda i&nbsp;mocny detergent.</figcaption>
+        </figure>
+      </div>
     </section>
 
     <section class="shop" id="sklep" aria-labelledby="sklep-title">
@@ -185,14 +204,49 @@
           <p>Powiedz, co trzeba posprzątać, gdzie i&nbsp;na kiedy.</p>
         </li>
         <li>
-          <h3>Ustalamy zakres i&nbsp;termin</h3>
-          <p>Przy większych zleceniach przyjeżdżamy obejrzeć miejsce i&nbsp;przygotowujemy wycenę.</p>
+          <h3>Ustalamy zakres i&nbsp;cenę</h3>
+          <p>Przy sprzątaniu po remoncie i&nbsp;doczyszczaniu podłóg najpierw przyjeżdżamy obejrzeć miejsce, a&nbsp;dopiero potem podajemy cenę.</p>
         </li>
         <li>
           <h3>Sprzątamy</h3>
-          <p>Przyjeżdżamy z&nbsp;własnym sprzętem i&nbsp;chemią. Ty odbierasz czyste miejsce.</p>
+          <p>Jednorazowo albo na stałe, na podstawie umowy. Przyjeżdżamy z&nbsp;własnym sprzętem i&nbsp;chemią.</p>
         </li>
       </ol>
+    </section>
+
+    <section class="refs" id="referencje" aria-labelledby="referencje-title">
+      <h2 id="referencje-title" class="section-title">Co napisali o&nbsp;nas klienci</h2>
+      <p class="refs__lead">Fragmenty czterech listów referencyjnych z&nbsp;lat 2011–2012. Przy każdym rok, w&nbsp;którym zaczęliśmy u&nbsp;nich sprzątać.</p>
+      <div class="since">
+        <h3 class="since__year"><span>Od</span> 1996</h3>
+        <div class="since__rows">
+            <figure class="ref">
+              <div class="ref__who"><h4>EL-AUTO sp. z&nbsp;o.o.</h4><p>Kompleksowe sprzątanie obiektu.</p></div>
+              <blockquote class="ref__quote"><p>„W&nbsp;trakcie współpracy firma »PeBol« dała się poznać jako rzetelny i&nbsp;solidny partner. Warte podkreślenia są: wysoka jakość wykonywanych robót, terminowość realizacji, szeroki zakres stosowanych technologii.”</p></blockquote>
+              <figcaption class="ref__src"><a href="assets/docs/referencja-elauto.pdf">List referencyjny z&nbsp;14&nbsp;listopada 2011 (PDF)</a></figcaption>
+            </figure>
+        </div>
+      </div>
+      <div class="since">
+        <h3 class="since__year"><span>Od</span> 2004</h3>
+        <div class="since__rows">
+            <figure class="ref">
+              <div class="ref__who"><h4>LAWA sp. z&nbsp;o.o.</h4><p>Biuro, łaźnie i&nbsp;pomieszczenia socjalne w&nbsp;części produkcyjnej zakładu.</p></div>
+              <blockquote class="ref__quote"><p>„Prace wykonywane są przez wykwalifikowany personel przy użyciu wysokiej jakości środków czyszczących.”</p></blockquote>
+              <figcaption class="ref__src"><a href="assets/docs/referencja-lawa.pdf">List referencyjny z&nbsp;14&nbsp;listopada 2012 (PDF)</a></figcaption>
+            </figure>
+            <figure class="ref">
+              <div class="ref__who"><h4>Szkoła im. św.&nbsp;Jana de La&nbsp;Salle</h4><p>Codziennie sale lekcyjne, sala gimnastyczna, korytarze, szatnie i&nbsp;toalety, okresowo okna.</p></div>
+              <blockquote class="ref__quote"><p>„Usługi wykonywane są solidnie i&nbsp;fachowo z&nbsp;zastosowaniem nowoczesnych środków chemicznych.”</p></blockquote>
+              <figcaption class="ref__src"><a href="assets/docs/referencja-szkola-de-la-salle.pdf">List referencyjny z&nbsp;15&nbsp;listopada 2012 (PDF)</a></figcaption>
+            </figure>
+            <figure class="ref">
+              <div class="ref__who"><h4>Odlewnia Żeliwa WULKAN SA</h4><p>Codziennie biura, sanitariaty i&nbsp;pomieszczenia socjalne w&nbsp;części produkcyjnej odlewni, do tego okna.</p></div>
+              <blockquote class="ref__quote"><p>„»PeBol« spełnia wszystkie wymogi i&nbsp;oczekiwania dotyczące jakości wykonywania usług, jakości zastosowanych materiałów oraz kwalifikacji i&nbsp;zaangażowania zatrudnionych tam pracowników.”</p></blockquote>
+              <figcaption class="ref__src"><a href="assets/docs/referencja-wulkan.pdf">List referencyjny z&nbsp;listopada 2012 (PDF)</a></figcaption>
+            </figure>
+        </div>
+      </div>
     </section>
 
     <section class="contact" id="kontakt" aria-labelledby="kontakt-title">
@@ -200,10 +254,12 @@
       <div>
         <h2 id="kontakt-title" class="contact__title">Zadzwoń, a&nbsp;umówimy sprzątanie.</h2>
         <a class="contact__phone" href="tel:+48343721677">34&nbsp;372&nbsp;16&nbsp;77</a>
+        <p class="contact__hours">Biuro jest czynne od poniedziałku do piątku, 9–16.</p>
         <div class="contact__details">
           <p><a href="mailto:biuro@pebol.pl">biuro@pebol.pl</a></p>
           <address>PeBol sp. j.<br>ul. Dobrzyńska 49<br>42-202 Częstochowa</address>
           <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Dobrzy%C5%84ska+49%2C+42-202+Cz%C4%99stochowa" rel="noopener" target="_blank">Pokaż dojazd na mapie</a></p>
+          <p><a href="https://www.facebook.com/pebolspj/" rel="noopener" target="_blank">PeBol na Facebooku</a></p>
         </div>
       </div>
     </section>
