@@ -111,13 +111,19 @@ a { color: inherit; }
 /* Hero: a red wall with the headline painted on it, behind steamed glass.
    Everything small sits on the glass, on a solid sign, so fog never covers it. */
 .hero {
+  /* The whole hero fits one screen where it can: the headline shrinks to
+     the height left over, not only to its column's width. */
+  --top: clamp(5.25rem, 13svh, 7.5rem);
+  --bottom: clamp(1.5rem, 6svh, 4rem);
+  --below-title: 0rem;
+  --room: calc(100svh - var(--top) - var(--bottom) - var(--below-title));
   position: relative;
-  min-height: max(38rem, 100svh);
+  min-height: max(34rem, 100svh);
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(19rem, 25rem);
   align-items: end;
   gap: 2rem clamp(2rem, 4vw, 4rem);
-  padding: 7.5rem max(var(--gutter), (100% - var(--max)) / 2) clamp(2.5rem, 7vh, 5rem);
+  padding: var(--top) max(var(--gutter), (100% - var(--max)) / 2) var(--bottom);
   background: var(--red);
   color: var(--white);
   overflow: hidden;
@@ -127,7 +133,8 @@ a { color: inherit; }
 }
 .hero__wall { position: relative; z-index: 1; container-type: inline-size; }
 .hero__title {
-  font-size: clamp(2.8rem, 22cqi, 11rem);
+  /* Four lines at .9 line height, plus room for descenders */
+  font-size: clamp(2.6rem, min(22cqi, var(--room) / 3.75), 11rem);
   font-weight: 900;
   font-stretch: 75%;
   line-height: .9;
@@ -193,15 +200,17 @@ a { color: inherit; }
 .hero.is-over-bubble, .contact.is-over-bubble { cursor: pointer; }
 
 @media (max-width: 60rem) {
+  /* Stacked: the sign sits under the headline, so leave it its height */
   .hero {
+    --top: clamp(5.25rem, 13svh, 6.5rem);
+    --below-title: 19rem;
     grid-template-columns: minmax(0, 1fr);
     align-content: end;
-    padding-top: 6.5rem;
   }
   .hero__sign { max-width: 34rem; }
 }
 @media (max-width: 40rem) {
-  .hero { gap: 1.5rem; padding-bottom: var(--gutter); }
+  .hero { --bottom: var(--gutter); --below-title: 24.5rem; gap: 1.5rem; }
   .hero__lead { font-size: 1.02rem; }
   .hero__actions .btn { flex-basis: 100%; }
 }

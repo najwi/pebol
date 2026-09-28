@@ -243,6 +243,8 @@ function setupHero() {
       if (start === null) start = now;
       const t = (now - start - delay) / duration;
       if (t < 0) return requestAnimationFrame(tick);
+      // Put the blade down at the start, however late the first frame comes.
+      if (passed === 0 && !last) wipeTo(path[0].x, path[0].y);
       const eased = t >= 1 ? 1 : 0.5 - 0.5 * Math.cos(Math.PI * t);
       const dist = Math.min(eased, 1) * total;
       let i = 1;
