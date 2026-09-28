@@ -323,7 +323,7 @@ a { color: inherit; }
 .compare__frame {
   --split: 50%;
   position: relative;
-  aspect-ratio: 1000 / 560;
+  aspect-ratio: 889 / 521;
   overflow: hidden;
   background: var(--ink);
   user-select: none; -webkit-user-select: none;
