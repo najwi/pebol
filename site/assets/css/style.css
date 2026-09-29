@@ -122,7 +122,10 @@ a { color: inherit; }
   min-height: max(34rem, 100svh);
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(19rem, 25rem);
+  /* Side by side, the headline and the sign share a bottom line, and any
+     height the headline doesn't use goes above and below it, not all on top */
   align-items: end;
+  align-content: center;
   gap: 2rem clamp(2rem, 4vw, 4rem);
   padding: var(--top) max(var(--gutter), (100% - var(--max)) / 2) var(--bottom);
   background: var(--red);
@@ -223,6 +226,19 @@ a { color: inherit; }
   .btn__full { display: none; }
   .btn__short { display: inline; }
   .hero__hint { margin-top: .8rem; padding-top: .7rem; font-size: .82rem; }
+}
+
+/* Big screens: the headline grows into the height instead of stopping at
+   11rem. Its column is as wide as a headline that fills the height needs
+   (22cqi = room / 3.75), the sign widens a little, and the pair is centred. */
+@media (min-width: 100rem) {
+  .hero {
+    grid-template-columns: minmax(0, min(var(--room) * 1.22, 73rem)) clamp(25rem, 18vw, 30rem);
+    justify-content: center;
+    padding-inline: var(--gutter);
+  }
+  .hero__title { font-size: clamp(2.6rem, min(22cqi, var(--room) / 3.75), 16rem); }
+  .hero__lead { font-size: clamp(1.1rem, .75vw, 1.3rem); }
 }
 
 /* Sections share one column system */
